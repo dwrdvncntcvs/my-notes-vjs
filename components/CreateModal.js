@@ -42,18 +42,29 @@ class CreateModal extends Overlay {
         data[input.id] = input.value;
       }
 
+      const reset = () => {
+        let child = overlayDiv.lastElementChild;
+
+        while (child) {
+          overlayDiv.removeChild(child);
+          child = overlayDiv.lastElementChild;
+        }
+      };
+
+      for (let key in data) {
+        if (data[key].trim().length === 0) {
+          reset();
+          return;
+        }
+      }
+
       const note = new Note(data.title, data.notes);
       const reqData = note.serializeData();
       await createNotes(`${BASE_URL}/notes`, reqData);
 
       await reinitializeContentComponent();
 
-      let child = overlayDiv.lastElementChild;
-
-      while (child) {
-        overlayDiv.removeChild(child);
-        child = overlayDiv.lastElementChild;
-      }
+      reset();
 
       form.reset();
     });
