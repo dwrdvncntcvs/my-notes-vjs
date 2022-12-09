@@ -1,0 +1,22 @@
+{
+  "notes": [
+    {
+      "id": "f75a6308-ebf2-46f2-8a00-8498bc367b62",
+      "title": "Hello World",
+      "details": "\t• Attended Full Scale Learning Daily Checkpoint\n\t• Asked Sir Nax about the renewal of Javascript Certification in Hacker Rank\n\t• Started mini \"notes\" project where users could add notes on the application\n\t• Created structure and design of the application with excalidraw\n\t• Used Object Oriented Programming on creating the application\n\t• Created initial design of the application\nCreated functionality that will display and create new notes",
+      "createdAt": "2022-12-09T14:12:58.407Z"
+    },
+    {
+      "id": "bca151f5-3202-4f00-a62e-d19ed04ab87a",
+      "title": "Something New",
+      "details": "I didn't expect that coding with Vanilla Javascript is really hard. Like you always need to create everything manually. I will stick with React and in the future I will learn AngularJS to broaden and sharpen my skills with Javascript as well as with Typescript.",
+      "createdAt": "2022-12-09T14:15:26.470Z"
+    },
+    {
+      "id": "fc25dd2d-df3a-4382-8426-9427db5fa8af",
+      "title": "What I did?",
+      "details": "Today:\n\t• Took Skill IQ assesment in Javascript Core Language at Pluralsight\n\t• Finished \"Javascript Security: Best Practices\" course\n\t• Rewatched some courses based on the recommendation after I took Skiil IQ Test in Javascript\n\t\nNext Working Day:\n• Review for Javascript Certification in Hacker Rank",
+      "createdAt": "2022-12-09T14:19:16.352Z"
+    }
+  ]
+}

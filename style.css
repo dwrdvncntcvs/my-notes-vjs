@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --note-color: #faeab1;
+  --note-btn-color: #c58940;
+  --note-btn-color-h: #c58940be;
+}
+
+button {
+  cursor: pointer;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background-color: #faeab1;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.header-container {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px 20px;
+}
+
+.header-container h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.body-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.body-container .content-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 10px;
+}
+
+.body-container .content-container .notes-list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  justify-items: flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.notes-list .note-item {
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  height: auto !important;
+  flex-direction: column;
+  display: flex;
+  background-color: #e5ba73;
+  padding: 30px 20px;
+  gap: 5px;
+  position: relative;
+}
+
+.notes-list .note-item:before {
+  content: "";
+  width: 100%;
+  height: 20px;
+  background-color: #c58940;
+  border-radius: 10px 10px 0px 0px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.notes-list .note-item p:nth-child(1) {
+  font-size: 0.74rem;
+  align-self: flex-end;
+  font-weight: bold;
+  color: gray;
+}
+
+.notes-list .note-item p:nth-child(2) {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.notes-list .note-item p:nth-child(3) {
+  font-size: 0.9em;
+  white-space: pre-line;
+  word-break: keep-all;
+}
+
+.body-container .buttons-container {
+  position: fixed;
+  width: 120px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  border-radius: 10px;
+  gap: 10px;
+  bottom: 20px;
+  right: 20px;
+}
+
+.body-container .buttons-container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background-color: var(--note-btn-color);
+  color: white;
+  transition: all ease 0.2s;
+}
+
+.body-container .buttons-container button:hover {
+  background-color: var(--note-btn-color-h);
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+#overlay .backdrop {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(2px);
+}
+
+#overlay .create-modal {
+  position: fixed;
+  background-color: var(--note-color);
+  height: 600px;
+  width: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  border: none;
+}
+
+#overlay .create-modal form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  padding: 20px;
+}
+
+#overlay .create-modal input {
+  width: 100%;
+  border: none;
+  font-size: 2rem;
+  padding: 10px;
+  background-color: transparent;
+  outline: none;
+  font-weight: bold;
+  color: gray;
+  position: relative;
+}
+
+#overlay .create-modal textarea {
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  height: 100% !important;
+  border: none;
+  resize: none;
+  font-size: 1.2rem;
+  padding: 10px;
+  background-color: transparent;
+  outline: none;
+  position: relative;
+  color: gray;
+}
+
+#overlay .create-modal button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: none;
+  font-size: 1.5em;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--note-btn-color);
+  color: white;
+  outline: none;
+  transition: all ease 0.2s;
+}
+
+#overlay .create-modal button:hover {
+  background-color: var(--note-btn-color-h);
+}
