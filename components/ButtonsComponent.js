@@ -71,20 +71,6 @@ const buttonsData = [
       createModal.render();
     },
   },
-  {
-    label: `<i class="material-icons">autorenew</i>`,
-    attributes: { type: "button", id: "update-button" },
-    action: () => {
-      console.log("Update");
-    },
-  },
-  {
-    label: `<i class="material-icons">delete</i>`,
-    attributes: { type: "button", id: "delete-button" },
-    action: () => {
-      console.log("Delete");
-    },
-  },
 ];
 
 const buttons = [];

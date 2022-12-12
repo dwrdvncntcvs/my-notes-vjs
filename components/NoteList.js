@@ -1,8 +1,44 @@
+import { removeNote } from "../api/notes";
 import { generateDate } from "../utils/helper";
+import { BASE_URL } from "../variable";
+import { reinitializeContentComponent } from "./ContentComponent";
 
 class NoteList {
   constructor(notes = []) {
     this.notes = notes;
+  }
+
+  createModifierContainer(id, itemId) {
+    const div = document.createElement("div");
+    div.classList = ["item-modifier"];
+    div.id = id;
+
+    const viewBtn = document.createElement("button");
+    viewBtn.textContent = "View";
+    viewBtn.classList = ["modifier-btn"];
+    viewBtn.id = "view-btn";
+
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "Delete";
+    removeBtn.classList = ["modifier-btn"];
+    removeBtn.id = "remove-btn";
+
+    viewBtn.addEventListener("click", (e) => {
+      console.log(`View ${itemId}`);
+    });
+
+    removeBtn.addEventListener("click", async () => {
+      console.log(`Remove ${itemId}`);
+      const URL = `${BASE_URL}/notes/${itemId}`;
+
+      await removeNote(URL);
+      await reinitializeContentComponent();
+    });
+
+    div.appendChild(viewBtn);
+    div.appendChild(removeBtn);
+
+    return div;
   }
 
   createNoteList() {
@@ -21,6 +57,8 @@ class NoteList {
       const p2 = document.createElement("p");
       const p3 = document.createElement("p");
       li.classList = ["note-item"];
+      const id = note.id;
+      li.id = id;
 
       p1.textContent = generateDate(note.createdAt);
       p2.textContent = note.title;
@@ -29,6 +67,23 @@ class NoteList {
       li.appendChild(p2);
       li.appendChild(p3);
       ul.appendChild(li);
+
+      const modifierId = `m-${id}`;
+
+      li.addEventListener("mouseenter", () => {
+        const itemModifier = document.querySelector(`#${modifierId}`);
+        if (itemModifier) return;
+
+        const div = this.createModifierContainer(modifierId, id);
+
+        li.appendChild(div);
+      });
+
+      li.addEventListener("mouseleave", () => {
+        const itemModifier = document.querySelector(`#${modifierId}`);
+        if (!itemModifier) return;
+        li.removeChild(itemModifier);
+      });
     }
 
     return ul;

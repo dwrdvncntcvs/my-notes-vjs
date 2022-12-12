@@ -10,4 +10,8 @@ const getNotes = async (URL) => {
   return await axios.get(URL);
 };
 
-export { createNotes, getNotes };
+const removeNote = async (URL) => {
+  return await axios.delete(URL);
+};
+
+export { createNotes, getNotes, removeNote };

@@ -97,6 +97,9 @@ body {
   position: relative;
 }
 
+.notes-list .note-item .item-hovered {
+}
+
 .notes-list .note-item:before {
   content: "";
   width: 100%;
