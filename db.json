@@ -1,25 +1,3 @@
 {
-  "notes": [
-    {
-      "id": "f75a6308-ebf2-46f2-8a00-8498bc367b62",
-      "title": "Hello World",
-      "details": "\t• Attended Full Scale Learning Daily Checkpoint\n\t• Asked Sir Nax about the renewal of Javascript Certification in Hacker Rank\n\t• Started mini \"notes\" project where users could add notes on the application\n\t• Created structure and design of the application with excalidraw\n\t• Used Object Oriented Programming on creating the application\n\t• Created initial design of the application\nCreated functionality that will display and create new notes",
-      "createdAt": "2022-12-09T14:12:58.407Z",
-      "updatedAt": "2022-12-12T10:36:05.452Z"
-    },
-    {
-      "id": "373afecd-901e-4025-8d9b-10ee830a8743",
-      "title": "Something I Realized",
-      "details": "I didn't realize before that it is really hard to code in Vanilla JavaScript. I think it's because that I started using it for creating Backend application. However, it is very hard to use in client side application. It can be very complex to create components of a page especially when trying to create a single page application.\n\nThese are my realizations when I try to create one for myself. I see that JS is hard but it allows me to learn more about the language that I always use. Client side and backend applications are two different but interesting things. Now I know why JavaScript has so many frameworks.",
-      "createdAt": "2022-12-12T08:51:13.140Z",
-      "updatedAt": "2022-12-12T08:51:13.140Z"
-    },
-    {
-      "id": "33356f9b-146d-45ac-b8a8-fbf48ba7094b",
-      "title": "December 12, 2022",
-      "details": "I will never worry about other people or threaten by other's present. I'm unique in my own ways and I know I can do things on my own and I can learn more. I will see them as a friend or someone I can learn from or with. ",
-      "createdAt": "2022-12-12T09:18:09.943Z",
-      "updatedAt": "2022-12-12T09:18:09.943Z"
-    }
-  ]
+  "notes": []
 }
