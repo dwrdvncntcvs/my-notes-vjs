@@ -13,10 +13,11 @@ class CreateModal extends Overlay {
 
   createForm(title) {
     const form = document.createElement("form");
-    const h2 = document.createElement("h2");
+    const p = document.createElement("p");
 
     form.classList = ["form"];
-    h2.textContent = title;
+    p.textContent = title;
+    form.appendChild(p);
 
     for (let input of this.inputs) form.appendChild(input);
 
@@ -29,7 +30,7 @@ class CreateModal extends Overlay {
     const div = document.createElement("div");
 
     div.classList = ["create-modal"];
-    const form = this.createForm("Add Notes");
+    const form = this.createForm("Add Note...");
     div.appendChild(form);
 
     form.addEventListener("submit", async (e) => {

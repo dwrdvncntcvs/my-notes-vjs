@@ -15,6 +15,13 @@ class Overlay {
     backDrop.addEventListener("click", () => {
       this.setVisibility(false);
 
+      const url = new URL(window.location.href);
+      for (let [key] of url.searchParams)
+        if (url.searchParams.has(key)) {
+          url.searchParams.delete(key);
+          window.location.href = url;
+        }
+
       for (let element of elements) {
         element.remove();
       }

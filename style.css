@@ -4,6 +4,9 @@
   --note-color: #faeab1;
   --note-btn-color: #c58940;
   --note-btn-color-h: #c58940be;
+
+  --delete-btn: rgba(255, 0, 0, 0.507);
+  --view-btn: rgba(16, 236, 16, 0.575);
 }
 
 button {
@@ -95,9 +98,7 @@ body {
   padding: 30px 20px;
   gap: 5px;
   position: relative;
-}
-
-.notes-list .note-item .item-hovered {
+  transition: all ease 0.2s;
 }
 
 .notes-list .note-item:before {
@@ -198,6 +199,11 @@ body {
   padding: 20px;
 }
 
+#overlay .create-modal form p {
+  align-self: flex-end;
+  color: gray;
+}
+
 #overlay .create-modal input {
   width: 100%;
   border: none;
@@ -206,7 +212,7 @@ body {
   background-color: transparent;
   outline: none;
   font-weight: bold;
-  color: gray;
+  color: black;
   position: relative;
 }
 
@@ -216,12 +222,12 @@ body {
   height: 100% !important;
   border: none;
   resize: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 10px;
   background-color: transparent;
   outline: none;
   position: relative;
-  color: gray;
+  color: black;
 }
 
 #overlay .create-modal button {
@@ -241,4 +247,35 @@ body {
 
 #overlay .create-modal button:hover {
   background-color: var(--note-btn-color-h);
+}
+
+.item-modifier {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+}
+
+.item-modifier button {
+  width: 70px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  transition: all ease 0.2s;
+}
+
+.item-modifier button:hover {
+  opacity: 0.8;
+}
+
+.item-modifier #view-btn {
+  background-color: var(--view-btn);
+}
+
+.item-modifier #remove-btn {
+  background-color: var(--delete-btn);
 }

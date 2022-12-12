@@ -24,11 +24,12 @@ class NoteList {
     removeBtn.id = "remove-btn";
 
     viewBtn.addEventListener("click", (e) => {
-      console.log(`View ${itemId}`);
+      const url = new URL(window.location.href);
+      url.searchParams.set("noteId", itemId);
+      window.location.search = url.search;
     });
 
     removeBtn.addEventListener("click", async () => {
-      console.log(`Remove ${itemId}`);
       const URL = `${BASE_URL}/notes/${itemId}`;
 
       await removeNote(URL);
