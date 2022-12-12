@@ -32,6 +32,14 @@ npm install -g yarn
 git clone https://github.com/dwrdvncntcvs/my-notes-vjs.git
 
 ```
+- Create new file in the project root directory named `db.json`.
+```json
+//db.json
+{
+    "notes": []
+}
+
+```
 
 - Run these commands.
 
