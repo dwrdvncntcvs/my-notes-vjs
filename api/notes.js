@@ -14,4 +14,13 @@ const removeNote = async (URL) => {
   return await axios.delete(URL);
 };
 
-export { createNotes, getNotes, removeNote };
+const updateNote = async (URL, data, headers) => {
+  return await axios.put(URL, data, {
+    headers: {
+      "Content-Type": "application/json",
+      ...headers,
+    },
+  });
+};
+
+export { createNotes, getNotes, removeNote, updateNote };

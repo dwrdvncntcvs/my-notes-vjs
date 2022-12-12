@@ -1,4 +1,5 @@
-import { getNotes } from "../api/notes";
+import { getNotes, updateNote } from "../api/notes";
+import Note from "../models/Note";
 import { BASE_URL } from "../variable";
 import Overlay from "./Global/Overlay";
 
@@ -27,12 +28,32 @@ class UpdateOverlay extends Overlay {
     const button = document.createElement("button");
     button.id = "create-btn";
     button.innerHTML = `<i class="material-icons">update</i>`;
+    button.setAttribute("type", "submit");
 
     const form = document.createElement("form");
     form.appendChild(p);
     form.appendChild(input);
     form.appendChild(textarea);
     form.appendChild(button);
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const title = input.value;
+      const details = textarea.value;
+      const note = new Note(
+        title,
+        details,
+        data.id,
+        data.createdAt,
+        new Date()
+      );
+
+      const url = `${BASE_URL}/notes/${note.id}`;
+
+      await updateNote(url, note);
+
+      window.location.search = "";
+    });
 
     return form;
   }
