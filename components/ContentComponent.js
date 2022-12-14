@@ -22,13 +22,20 @@ class ContentComponent extends NoteList {
 export default ContentComponent;
 
 const initializeContentComponent = async () => {
-  const response = await getNotes(`${BASE_URL}/notes`);
-  const data = response.data;
+  try {
+    const response = await getNotes(`${BASE_URL}/notes`);
+    const data = response.data;
 
-  const contentComponent = new ContentComponent(data);
-  const contentContainer = contentComponent.render();
+    const contentComponent = new ContentComponent(data);
+    const contentContainer = contentComponent.render();
 
-  return contentContainer;
+    return contentContainer;
+  } catch (e) {
+    const contentComponent = new ContentComponent();
+    const contentContainer = contentComponent.render();
+
+    return contentContainer;
+  }
 };
 
 const reinitializeContentComponent = async () => {

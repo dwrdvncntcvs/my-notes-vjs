@@ -7,6 +7,9 @@
 
   --delete-btn: rgba(255, 0, 0, 0.507);
   --view-btn: rgba(16, 236, 16, 0.575);
+
+  --delete-btn-1: rgba(255, 0, 0, 0.2);
+  --view-btn-1: rgba(16, 236, 16, 0.2);
 }
 
 button {
@@ -41,15 +44,46 @@ body {
   width: 100%;
   height: 70px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   padding: 0px 20px;
 }
 
 .header-container h1 {
   font-size: 2rem;
   font-weight: 600;
+}
+
+.header-container .droppable-div {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.header-container .droppable-div div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px dashed;
+  border-radius: 10px;
+  border-color: var(--note-btn-color-h);
+  color: var(--note-btn-color-h);
+  height: 60px;
+  width: 200px;
+  transition: all ease 0.2s;
+  font-weight: bold;
+  user-select: none;
+}
+
+.delete-drop-over {
+  border-color: var(--delete-btn) !important;
+  background-color: var(--delete-btn-1) !important;
+}
+
+.update-drop-over {
+  border-color: var(--view-btn) !important;
+  background-color: var(--view-btn-1) !important;
 }
 
 .body-container {
@@ -84,6 +118,16 @@ body {
   list-style-type: none;
 }
 
+.body-container .content-container #empty-note-text {
+  color: var(--note-btn-color-h);
+  font-weight: bold;
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .notes-list .note-item {
   justify-content: flex-start;
   align-content: flex-start;
@@ -91,7 +135,6 @@ body {
   width: 300px;
   height: auto;
   border-radius: 10px;
-  height: auto !important;
   flex-direction: column;
   display: flex;
   background-color: #e5ba73;
@@ -99,6 +142,13 @@ body {
   gap: 5px;
   position: relative;
   transition: all ease 0.2s;
+  cursor: grab;
+}
+
+.grabbed {
+  opacity: 0.4 !important;
+  height: 275px !important;
+  overflow: hidden !important;
 }
 
 .notes-list .note-item:before {

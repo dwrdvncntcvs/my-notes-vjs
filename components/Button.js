@@ -1,8 +1,9 @@
 class Button {
-  constructor(label, attributes, action) {
+  constructor(label, attributes, action, drop) {
     this.label = label;
     this.attributes = attributes;
     this.action = action;
+    this.drop = drop;
   }
 
   render() {

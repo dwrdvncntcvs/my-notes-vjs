@@ -46,6 +46,7 @@ class NoteList {
     if (this.notes.length < 1) {
       const p = document.createElement("p");
       p.textContent = "Note List is empty";
+      p.id = "empty-note-text";
       return p;
     }
 
@@ -58,6 +59,8 @@ class NoteList {
       const p2 = document.createElement("p");
       const p3 = document.createElement("p");
       li.classList = ["note-item"];
+      li.setAttribute("draggable", true);
+
       const id = note.id;
       li.id = id;
 
@@ -69,22 +72,32 @@ class NoteList {
       li.appendChild(p3);
       ul.appendChild(li);
 
-      const modifierId = `m-${id}`;
-
-      li.addEventListener("mouseenter", () => {
-        const itemModifier = document.querySelector(`#${modifierId}`);
-        if (itemModifier) return;
-
-        const div = this.createModifierContainer(modifierId, id);
-
-        li.appendChild(div);
+      li.addEventListener("dragstart", (e) => {
+        li.classList.add("grabbed");
+        e.dataTransfer.setData("noteId", id);
       });
 
-      li.addEventListener("mouseleave", () => {
-        const itemModifier = document.querySelector(`#${modifierId}`);
-        if (!itemModifier) return;
-        li.removeChild(itemModifier);
+      li.addEventListener("dragend", () => {
+        li.classList.remove("grabbed");
       });
+
+      // Buttons for updating and deleting notes
+      // const modifierId = `m-${id}`;
+
+      // li.addEventListener("mouseenter", () => {
+      //   const itemModifier = document.querySelector(`#${modifierId}`);
+      //   if (itemModifier) return;
+
+      //   const div = this.createModifierContainer(modifierId, id);
+
+      //   li.appendChild(div);
+      // });
+
+      // li.addEventListener("mouseleave", () => {
+      //   const itemModifier = document.querySelector(`#${modifierId}`);
+      //   if (!itemModifier) return;
+      //   li.removeChild(itemModifier);
+      // });
     }
 
     return ul;
