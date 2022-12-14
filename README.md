@@ -1,6 +1,8 @@
 # Notes App
 
-Notes app is a sample project built with Vanilla JavaScript. I used Object Oriented Programming in this application to practice creating interactive UI with plain JS.
+<b><i>Notes app</i></b> is a simple project built with Vanilla JavaScript. I used Object Oriented Programming in this application to practice creating interactive UI with plain JS. This application was created to help me practice myself writing Vanilla Javascript code as I'm used to using framework when working with client side applications.
+
+This application includes creating notes that will be saved in JSON format with the help of json-server library. The application also displays all the list of notes that the user has created. Every notes can be updated and deleted. The update and delete a note, the user should grab the note that he/she wants to delete or update then drop it to the delete or update area within the page.
 
 ## Libraries Used:
 
@@ -11,7 +13,7 @@ Notes app is a sample project built with Vanilla JavaScript. I used Object Orien
 
 ## Excalidraw Design
 
-This is the mock design of the application.
+This is the mock design of the application that shows how every components is layed out within the page. Also it includes the structure of the components as well as the details on how the application will be created.
 
 ![excalidraw-note-image](https://github.com/dwrdvncntcvs/my-notes-vjs/blob/master/assets/excalidraw-notes-design.png?raw=true)
 
@@ -30,28 +32,25 @@ npm install -g yarn
 
 ```bash
 git clone https://github.com/dwrdvncntcvs/my-notes-vjs.git
-
 ```
+
 - Create new file in the project root directory named `db.json`.
-```json
-//db.json
-{
-    "notes": []
-}
 
+```json
+{
+  "notes": []
+}
 ```
 
-- Run these commands.
+- Run these commands based on its order.
 
 ```bash
-
 # To install all the dependencies used in this project
 yarn
-
-# To run the application
-yarn dev
 
 # To run the application's json-server
 yarn server
 
+# To run the application
+yarn dev
 ```
